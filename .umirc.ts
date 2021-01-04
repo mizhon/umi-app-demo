@@ -8,4 +8,5 @@ export default defineConfig({
    * 快速刷新
    */
   fastRefresh: {},
+  ssr: {},
 });

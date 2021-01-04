@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
+    "@lingui/react": "^3.3.0",
     "@umijs/preset-react": "1.x",
     "umi": "^3.3.3"
   },

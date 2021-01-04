@@ -1,80 +1,17 @@
 import React from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-} from '@ant-design/icons';
-import { withRouter, IRouteComponentProps } from 'umi';
-import styles from './index.less';
+// import { I18nProvider } from '@lingui/react'
+import { withRouter } from 'umi';
+import { ConfigProvider } from 'antd';
 
-const { Header, Footer, Sider, Content } = Layout;
-const { SubMenu } = Menu;
+class Layout extends React.Component<any> {
+  render() {
+    return (
+      <ConfigProvider>
+        {/* <I18nProvider language={language} catalogs={catalogs}>
+        </I18nProvider> */}
+      </ConfigProvider>
+    );
+  }
+}
 
-export default ({
-  children,
-  location,
-  route,
-  history,
-  match,
-}: IRouteComponentProps) => {
-  console.log('testing ...');
-  return (
-    <Layout>
-      <Header className="style.header">
-        <div className="style.logo" />
-      </Header>
-      <Layout>
-        <Sider width={200} className="site-layout-background">
-          <Menu
-            mode="inline"
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            style={{ height: '100%', borderRight: 0 }}
-          >
-            <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
-              <Menu.Item key="1">option1</Menu.Item>
-              <Menu.Item key="2">option2</Menu.Item>
-              <Menu.Item key="3">option3</Menu.Item>
-              <Menu.Item key="4">option4</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub2" icon={<LaptopOutlined />} title="subnav 2">
-              <Menu.Item key="5">option5</Menu.Item>
-              <Menu.Item key="6">option6</Menu.Item>
-              <Menu.Item key="7">option7</Menu.Item>
-              <Menu.Item key="8">option8</Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub3"
-              icon={<NotificationOutlined />}
-              title="subnav 3"
-            >
-              <Menu.Item key="9">option9</Menu.Item>
-              <Menu.Item key="10">option10</Menu.Item>
-              <Menu.Item key="11">option11</Menu.Item>
-              <Menu.Item key="12">option12</Menu.Item>
-            </SubMenu>
-          </Menu>
-        </Sider>
-        <Layout style={{ padding: '0 24px 24px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
-          <Content
-            className="site-layout-background"
-            style={{
-              padding: 24,
-              margin: 0,
-              minHeight: 280,
-            }}
-          >
-            {/* Content */}
-            {children}
-          </Content>
-        </Layout>
-      </Layout>
-    </Layout>
-  );
-};
+export default withRouter(Layout);
