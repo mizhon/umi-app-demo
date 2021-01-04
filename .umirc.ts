@@ -5,24 +5,6 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-
-  /** 
-   * 此处添加 routes 类似在config/config.ts中添加routes，只是这里的优先级更高。
-   * 如果配置了 routes，则优先使用配置式路由，且约定式路由会不生效。
-   */
-  // routes: [
-  //   { path: '/', component: '@/pages/index' },
-  //   {
-  //     path: '/dashboard',
-  //     component: '@/pages/dashboard/index',
-  //   },
-  // ],
-  alias: {
-    '@': path.resolve(__dirname, './src'),
-    '@pages': path.resolve(__dirname, './src/pages'),
-    '@utils': path.resolve(__dirname, './src/utils'),
-
-  },
   /**
    * 快速刷新
    */
