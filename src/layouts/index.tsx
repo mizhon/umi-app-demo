@@ -1,17 +1,32 @@
-import React from 'react';
-// import { I18nProvider } from '@lingui/react'
-import { withRouter } from 'umi';
-import { ConfigProvider } from 'antd';
+import React, { Component } from 'react'
+import { ConfigProvider } from 'antd'
+import { withRouter } from 'umi'
+import BaseLayout from './BaseLayout'
 
-class Layout extends React.Component<any> {
+interface LayoutProps {}
+interface LayoutState {}
+class Layout extends Component<any> {
+  state = {
+    name: 'layout'
+  }
+
+  componentDidMount() {}
+
+  shouldComponentUpdate(nextProps: LayoutProps, nextState: LayoutState) {
+    console.log(nextProps, nextState)
+    return true
+  }
+
   render() {
+    console.log('layout index -->', this.props, this.state);
+    const { children } = this.props
+
     return (
       <ConfigProvider>
-        {/* <I18nProvider language={language} catalogs={catalogs}>
-        </I18nProvider> */}
+        <BaseLayout>{children}</BaseLayout>
       </ConfigProvider>
     );
   }
 }
 
-export default withRouter(Layout);
+export default withRouter(Layout)

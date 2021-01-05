@@ -1,5 +1,5 @@
 export default {
-  '/mock/api/users': {
+  '/mock/api/demo': {
     data: ['a', 'b'],
     msg: 'ok',
   },
